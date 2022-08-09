@@ -1,0 +1,7 @@
+import sys.io.File;
+
+function create() {}
+
+function setupShit(image:String, mod:String) {
+    sprite.loadGraphic("mods/" + mod + "/images/menu/buttons/" + image + ".png");
+}

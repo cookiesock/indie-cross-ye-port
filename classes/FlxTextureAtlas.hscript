@@ -1,0 +1,32 @@
+import flixel.FlxSprite;
+import flixel.FlxG;
+import haxe.Json;
+import Paths;
+import sys.io.File;
+import flixel.math.FlxRect;
+import mod_support_stuff.ModSprite;
+
+var json;
+var spritesArray;
+
+function create(x:Float, y:Float, folder:String, mod:String) {
+    json = Json.parse(File.getContent("mods/" + mod + "/images/" + folder + "/spritemap.json"));
+    spritesArray = json.ATLAS.SPRITES;
+
+    if (spritesArray != null && spritesArray.length > 0) {
+        for (sprite in spritesArray) {
+            var spriteName:String = sprite.SPRITE.name;
+            var spriteX:Float = sprite.SPRITE.x;
+            var spriteY:Float = sprite.SPRITE.y;
+            var spriteW:Float = sprite.SPRITE.w;
+            var spriteH:Float = sprite.SPRITE.h;
+            var spriteRotated:Bool = sprite.SPRITE.rotated;
+
+            var balls:ModSprite = new ModSprite(x, y, "FlxTextureAtlasSprite").loadGraphic(Paths.image(folder + "/spritemap"));
+            balls.set("tag", spriteName);
+            balls.clipRect = new FlxRect(spriteX, spriteY, spriteW, spriteH);
+            FlxG.state.add(balls);
+            trace("successfully set up texture atlas sprite " + balls.get("tag") + " at X " + balls.x + " and Y " + balls.y);
+        }
+    }
+}
