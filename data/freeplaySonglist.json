@@ -1,1 +1,14 @@
-{"songs":[]}
+{
+    "songs" : [
+        {
+            "name" : "snake-eyes",
+            "char" : "cuphead"
+        }, {
+            "name" : "technicolor-tussle",
+            "char" : "cuphead"
+        }, {
+            "name" : "knockout",
+            "char" : "cuphead"
+        }
+    ]
+}
