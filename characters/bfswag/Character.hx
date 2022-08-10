@@ -43,9 +43,14 @@ function create() {
 	var offsetY = 0;
 	var pXOff = 0;
     // this is temporary, check line 12280
-    character.camOffset.x = (character.width / 2) - 700 + offsetX + pXOff;
-    character.camOffset.y = (character.height / 2) - 170 + offsetY;
+    // update from sj: good enough
+    character.camOffset.y = -25;
+    character.camOffset.x = -500;
 
+    character.addCameraOffset("singLEFT", -25, 0);
+    character.addCameraOffset("singDOWN", 0, 25);
+    character.addCameraOffset("singUP", 0, -25);
+    character.addCameraOffset("singRIGHT", 25, 0);
 }
 
 function getColors(altAnim) {

@@ -36,4 +36,9 @@ function create() {
     character.camOffset.x = -50;
 
     character.playAnim('idle');
+
+    character.addCameraOffset("singLEFT", -25, 0);
+    character.addCameraOffset("singDOWN", 0, 25);
+    character.addCameraOffset("singUP", 0, -25);
+    character.addCameraOffset("singRIGHT", 25, 0);
 }

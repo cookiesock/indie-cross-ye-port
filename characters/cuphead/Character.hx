@@ -32,6 +32,11 @@ function create() {
     character.y += 300;
     character.x -= 150;
 
+    character.addCameraOffset("singLEFT", -25, 0);
+    character.addCameraOffset("singDOWN", 0, 25);
+    character.addCameraOffset("singUP", 0, -25);
+    character.addCameraOffset("singRIGHT", 25, 0);
+
     // if (PlayState.song.song.toLowerCase() == 'snake-eyes' || !isStoryMode) {
     //     new FlxTimer().start(0.25, function(tmr:FlxTimer) {
     //         character.playAnim('intro', false, false, 0, true);
