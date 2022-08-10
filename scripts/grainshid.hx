@@ -23,3 +23,9 @@ function createPost() {
     fgGrain.cameras = [PlayState.camHUD];
     add(fgGrain);
 }
+
+function updatePost(elapsed) {
+    PlayState.notes.forEach(function(n) {
+        n.splash = Paths.splashes('splashes');
+    });
+}
