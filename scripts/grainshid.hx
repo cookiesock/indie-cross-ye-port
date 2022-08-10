@@ -1,3 +1,5 @@
+import openfl.filters.ShaderFilter;
+
 function createPost() {
     var fgStatic = new FlxSprite();
     fgStatic.frames = Paths.getSparrowAtlas('cup/images/CUpheqdshid');
@@ -22,6 +24,20 @@ function createPost() {
     fgGrain.scrollFactor.set();
     fgGrain.cameras = [PlayState.camHUD];
     add(fgGrain);
+
+    var chromaticAberration:CustomShader = new CustomShader(Paths.shader("ChromaticAbberation"));
+    FlxG.camera.setFilters([new ShaderFilter(chromaticAberration)]);
+
+    if (PlayState.song.song.toLowerCase() == "snake-eyes") {
+        chromaticAberration.shaderData.rOffset.value = [0.001];
+        chromaticAberration.shaderData.gOffset.value = [0.0];
+        chromaticAberration.shaderData.bOffset.value = [0.001 * -1];
+    }
+    if (PlayState.song.song.toLowerCase() == "devils-gambit") {
+        chromaticAberration.shaderData.rOffset.value = [0.001];
+        chromaticAberration.shaderData.gOffset.value = [0.0];
+        chromaticAberration.shaderData.bOffset.value = [0.001 * -1];
+    }
 }
 
 function updatePost(elapsed) {

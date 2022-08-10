@@ -1,4 +1,6 @@
 import Math;
+import openfl.filters.ShaderFilter;
+import Conductor;
 
 var brightFyreVal:Float = 0;
 var brightMagnitude:Float = 0;
@@ -11,8 +13,7 @@ var brightShader:CustomShader;
 
 function createPost() {
     brightShader = new CustomShader(Paths.shader("Bright"));
-    FlxG.camera.setFilters([brightShader]);
-    FlxG.camera.filtersEnabled = true;
+    PlayState.camHUD.setFilters([new ShaderFilter(brightShader)]);
 
     if (PlayState.song.song.toLowerCase() == 'devils-gambit') {
         defaultBrightVal = -0.05;

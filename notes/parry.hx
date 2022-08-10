@@ -21,6 +21,30 @@ function create() {
 
 function onPlayerHit(direction:Int) {
     FlxG.sound.play(Paths.file("images/cup/sounds/parry.ogg"));
+    switch(direction) {
+        case 0:
+            PlayState.boyfriend.animation.play("singLEFT", true);
+        case 1:
+            PlayState.boyfriend.animation.play("singDOWN", true);
+        case 2:
+            PlayState.boyfriend.animation.play("singUP", true);
+        case 3:
+            PlayState.boyfriend.animation.play("singRIGHT", true);
+    }
+}
+
+function onDadHit(direction:Int) {
+    FlxG.sound.play(Paths.file("images/cup/sounds/parry.ogg"));
+    switch(direction) {
+        case 0:
+            PlayState.dad.animation.play("singLEFT", true);
+        case 1:
+            PlayState.dad.animation.play("singDOWN", true);
+        case 2:
+            PlayState.dad.animation.play("singUP", true);
+        case 3:
+            PlayState.dad.animation.play("singRIGHT", true);
+    }
 }
 
 // note to self (sj): get the parry shit working later
