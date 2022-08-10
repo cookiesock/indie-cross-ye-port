@@ -1,5 +1,5 @@
 function create() {
-    var tex = Paths.getCharacter(textureOverride != "" ? textureOverride : mod + ":cuphead");
+    var tex = Paths.getCharacter(character.curCharacter);
     character.frames = tex;
     character.animation.addByPrefix('idle', 'Cuphead_standing instance 1', 24, true);
     character.animation.addByPrefix('singUP', 'Up instance 1', 24);
@@ -52,4 +52,15 @@ function getColors(altAnim) {
         EngineSettings.arrowColor2,
         EngineSettings.arrowColor3
     ];
+}
+
+var animArray:Array<String> = ["singLEFT", "singDOWN", "singUP", "singRIGHT"];
+
+function onDadHit(direction:Int) {
+    if (!noteShit.isSustainNote) {
+        PlayState.dad.animation.play(animArray[direction], true);
+    }
+}
+
+function onPlayerHit() {
 }

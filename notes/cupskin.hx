@@ -2,6 +2,8 @@ enableRating = true;
 
 // enableMiss(true);
 
+var noteShit;
+
 function create() {
     note.frames = Paths.getSparrowAtlas("cup/images/NOTE_cup");
 
@@ -39,6 +41,8 @@ function create() {
                 note.prevNote.animation.play("holdpiece");
         note.animation.play("holdend");
     }
+
+    noteShit = note;
 }
 
 function update(elapsed) {
