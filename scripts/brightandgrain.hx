@@ -46,6 +46,19 @@ function createPost() {
         chromaticAberration.shaderData.gOffset.value = [0.0];
         chromaticAberration.shaderData.bOffset.value = [-0.001];
     }
+    if (PlayState.song.song.toLowerCase() == "technicolor-tussle") {
+        chromaticAberration.shaderData.rOffset.value = [0.001];
+        chromaticAberration.shaderData.gOffset.value = [0.0];
+        chromaticAberration.shaderData.bOffset.value = [-0.001];
+    }
+    if (PlayState.song.song.toLowerCase() == "knockout") {
+        chromaticAberration.shaderData.rOffset.value = [0.001];
+        chromaticAberration.shaderData.gOffset.value = [0.0];
+        chromaticAberration.shaderData.bOffset.value = [-0.001];
+        defaultBrightVal = -0.05;
+        brightSpeed = 0.2;
+        brightMagnitude = 0.05;
+    }
     if (PlayState.song.song.toLowerCase() == "devils-gambit") {
         chromaticAberration.shaderData.rOffset.value = [0.001];
         chromaticAberration.shaderData.gOffset.value = [0.0];
@@ -86,9 +99,11 @@ function updatePost(elapsed) {
 }
 
 function onDadHit(direction:Int) {
-    chromaticAberration.shaderData.rOffset.value = [0.02];
-    chromaticAberration.shaderData.bOffset.value = [-0.02];
-    FlxG.camera.shake(0.01, 0.1);
-    PlayState.camHUD.shake(0.01, 0.1);
-    // note to self (sj): make chroma offset not vomit inducing
+    if (PlayState.song.song.toLowerCase() == "devils-gambit") {
+        chromaticAberration.shaderData.rOffset.value = [0.02];
+        chromaticAberration.shaderData.bOffset.value = [-0.02];
+        FlxG.camera.shake(0.01, 0.1);
+        PlayState.camHUD.shake(0.01, 0.1);
+        // note to self (sj): make chroma offset not vomit inducing
+    }
 }

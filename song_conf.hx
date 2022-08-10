@@ -4,7 +4,7 @@ switch(song) {
     case "technicolor-tussle":
         scripts = ["stages/field", "scripts/grainshid"];
     case "knockout":
-        scripts = ["stages/field", "scripts/grainshid"];
+        scripts = ["stages/field", "scripts/brightandgrain"];
     case "devils-gambit":
-        scripts = ["stages/devilHall", "scripts/grainshid", "scripts/brightandgrain"];
+        scripts = ["stages/devilHall", "scripts/brightandgrain", "scripts/cupmechanic"];
 }
